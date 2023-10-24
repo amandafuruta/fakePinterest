@@ -19,7 +19,7 @@ def home():
         usuario = User.query.filter_by(email = formlogin.email.data).first()
 
         # Se ele encontra um usuário e a senha for compatível
-        if usuario and bcrypt.check_password_hash(usuario.password.enconde("utf-8"), formlogin.password.data):
+        if usuario and bcrypt.check_password_hash(usuario.password.encode("utf-8"), formlogin.password.data):
             # Verifica se a senha está correta
             ## bcrypt.check_password_hash(usuario.password, formlogin.password.data)
 
