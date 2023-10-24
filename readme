@@ -1,0 +1,5 @@
+# A pasta 'templates' tem que ter esse nome obrigatoriamente, o render_template do Flask localiza pelo nome
+
+# init > view (rotas)
+
+# ao rodar o criar_banco.py, um bd é criado
