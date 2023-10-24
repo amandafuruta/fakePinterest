@@ -19,7 +19,7 @@ def home():
         usuario = User.query.filter_by(email = formlogin.email.data).first()
 
         # Se ele encontra um usuário e a senha for compatível
-        if usuario and bcrypt.check_password_hash(usuario.password, formlogin.password.data):
+        if usuario and bcrypt.check_password_hash(usuario.password.enconde("utf-8"), formlogin.password.data):
             # Verifica se a senha está correta
             ## bcrypt.check_password_hash(usuario.password, formlogin.password.data)
 
@@ -36,7 +36,7 @@ def criarconta():
     # Verificar dados estão validos. Se sim:
     if formcriarconta.validate_on_submit():
         # criptografa a senha
-        senha = bcrypt.generate_password_hash(formcriarconta.password.data)
+        senha = bcrypt.generate_password_hash(formcriarconta.password.data).decode('utf-8')
         usuario = User(username= formcriarconta.username.data , email= formcriarconta.email.data , password= senha )
 
         # Grava no BD

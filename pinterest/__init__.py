@@ -11,6 +11,10 @@ app = Flask(__name__)
 # Variável de ambiente criado no Render
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('DATABASE_URL')
 
+# Link externo do Render para criar um bd online.. depois de criado, não precisa mais
+# app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://fake_pintereste_bd_user:2dtPrZmn6sqLBgMzJGhXszA2BBYJQdol@dpg-ckrvc5fd47qs73esvoag-a.oregon-postgres.render.com/fake_pintereste_bd'
+
+
 # chave de segurança do app. é uma chave aleatória
 app.config["SECRET_KEY"] = '28b0ea93dca5efaccf48015653dc609b'
 
