@@ -2,9 +2,14 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+import os
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///comunidade.db"
+# Local
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///comunidade.db"
+
+# Variável de ambiente criado no Render
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('DATABASE_URL')
 
 # chave de segurança do app. é uma chave aleatória
 app.config["SECRET_KEY"] = '28b0ea93dca5efaccf48015653dc609b'
